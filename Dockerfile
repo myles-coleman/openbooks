@@ -16,7 +16,7 @@ RUN go install -v ./...
 WORKDIR /go/src/cmd/openbooks/
 RUN go build
 
-FROM gcr.io/distroless/static as app
+FROM arm64v8/alpine:3 as app
 WORKDIR /app
 COPY --from=build /go/src/cmd/openbooks/openbooks .
 
